@@ -1,0 +1,99 @@
+﻿@model TicketSite.Models.Passenger
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<link rel="stylesheet" href="/css/passenger.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+<h4>  @Localizer["Yolcu bilgilerini Giriniz"]</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PassengerName" class="control-label"></label>
+                <input asp-for="PassengerName" class="form-control" />
+                <span asp-validation-for="PassengerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassengerSurname" class="control-label"></label>
+                <input asp-for="PassengerSurname" class="form-control" />
+                <span asp-validation-for="PassengerSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label"></label>
+                <input asp-for="Birthday" class="form-control" />
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="radio" asp-for="passengerGender" name="passengerGender" value="erkek"> @Localizer[" Erkek"]
+                </label>
+                <label>
+                    <input type="radio" asp-for="passengerGender" name="passengerGender" value="kadın"> @Localizer["Kadın"]
+                </label>
+                <span asp-validation-for="passengerGender" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="TCNumber" class="control-label"></label>
+                <input asp-for="TCNumber" class="form-control" />
+                <span asp-validation-for="TCNumber" class="text-danger"></span>
+            </div>
+            <h5> @Localizer["İletişim bilgileri"]</h5>
+            <hr />
+            <div>
+                <div class="form-group">
+                    <label asp-for="UserMail" class="control-label">@Localizer["Mail adresi"]</label>
+                    <input asp-for="UserMail" class="form-control" />
+                    <span asp-validation-for="UserMail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserPhone" class="control-label">@Localizer["Telefon numarası:"]</label>
+                    <input asp-for="UserPhone" class="form-control" />
+                    <span asp-validation-for="UserPhone" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="TicketType">@Localizer["Uçuş türü seçiniz:"]</label>
+                <br />
+                <select name="TicketType" id="classSelection" required>
+                    <option value="Economy"> @Localizer["Ekonomi Class"]</option>
+                    <option value="Business">Business Class</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="yolcuyu kaydet" class="btn btn-primary" asp-controller=" Payment" asp-action="Create" />
+                <div>
+                    <a asp-controller="Payment" asp-action="Create" class="btn btn-info"> @Localizer["Ödeme işlemine geç"]</a>
+                </div>
+
+
+                <a asp-controller="Home" asp-action="Index" class="btn btn-warning"> @Localizer["Anasayfa"]</a>
+            </div>
+            <br />
+            
+         
+        </form>
+    </div>
+</div>
+
+<h5 style="color:blue;">@TempData["onayMesaji"]</h5>
+
+<br />
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

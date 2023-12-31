@@ -1,0 +1,87 @@
+﻿@model TicketSite.Models.Flight
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "Create";
+}
+<link rel="stylesheet" href="/css/flight.css">
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4 offset-2">
+        <h4> @Localizer["Uçuş ekle"]</h4>
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PassengerCapacity" class="control-label"></label>
+                <input asp-for="PassengerCapacity" class="form-control" />
+                <span asp-validation-for="PassengerCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightDeparture" class="control-label"></label>
+                <input asp-for="FlightDeparture" class="form-control" />
+                <span asp-validation-for="FlightDeparture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightDestination" class="control-label"></label>
+                <input asp-for="FlightDestination" class="form-control" />
+                <span asp-validation-for="FlightDestination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightDepartureDate" class="control-label"></label>
+                <input asp-for="FlightDepartureDate" class="form-control" />
+                <span asp-validation-for="FlightDepartureDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightDestinationDate" class="control-label"></label>
+                <input asp-for="FlightDestinationDate" class="form-control" />
+                <span asp-validation-for="FlightDestinationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightDepartureTime" class="control-label"></label>
+                <input asp-for="FlightDepartureTime" class="form-control" />
+                <span asp-validation-for="FlightDepartureTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightDestinationTime" class="control-label"></label>
+                <input asp-for="FlightDestinationTime" class="form-control" />
+                <span asp-validation-for="FlightDestinationTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EconomyClassPrice" class="control-label"></label>
+                <input asp-for="EconomyClassPrice" class="form-control" />
+                <span asp-validation-for="EconomyClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessClassPrice" class="control-label"></label>
+                <input asp-for="BusinessClassPrice" class="form-control" />
+                <span asp-validation-for="BusinessClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="airlineBusiness" class="control-label"></label>
+                <input asp-for="airlineBusiness" class="form-control" />
+                <span asp-validation-for="airlineBusiness" class="text-danger"></span>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" value="  @Localizer["Kaydet"]" class="btn btn-success w-100 h-25" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <a asp-action="Index" class="btn btn-sm btn-secondary w-100 h-100"> @Localizer["Uçuşları görüntüle"]"Uçuşları görüntüle</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

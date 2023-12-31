@@ -1,0 +1,86 @@
+﻿@model IEnumerable<TicketSite.Models.Passenger>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.passengerGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TCNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.passengerGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TCNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketType)
+            </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PassengerId" class="btn btn-sm btn-success">
+                        <i class="fa-solid fa-pen-to-square"></i>  @Localizer[" Düzenle"]
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@item.PassengerId" class="btn btn-sm btn-warning">
+                        <i class="fa-solid fa-trash"></i> @Localizer["Sil"]
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.PassengerId" class="btn btn-sm btn-info"> @Localizer["Görüntüle"]</a>
+
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

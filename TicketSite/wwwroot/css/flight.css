@@ -1,0 +1,33 @@
+﻿body {
+    position: relative;
+    margin-left: 0;
+    text-align: left;
+    overflow-x: auto;
+}
+.dl-horizontal dt {
+    float: left;
+    width: 160px; /* Belirli bir genişlik belirtin veya ihtiyaca göre ayarlayın */
+    clear: left;
+    text-align: right;
+    margin-right: 10px; /* İsteğe bağlı: dt ve dd arasındaki boşluğu ayarlamak için */
+}
+
+.dl-horizontal dd {
+    margin-left: 180px; /* dt'nin genişliği + margin sağlamak */
+}
+
+.container {
+    text-align: left;
+    /* veya */
+    margin-left: 0;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column; /* Resimleri dikey (alt alta) sıralamak için */
+}
+
+    /* İsteğe bağlı: Resimler arasında boşluk bırakma */
+    .image-container img {
+        margin-bottom: 10px;
+    }

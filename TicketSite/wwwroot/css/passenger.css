@@ -1,0 +1,11 @@
+﻿body {
+}
+.image-container {
+    display: flex;
+    flex-direction: column; /* Resimleri dikey (alt alta) sıralamak için */
+}
+
+    /* İsteğe bağlı: Resimler arasında boşluk bırakma */
+    .image-container img {
+        margin-bottom: 10px;
+    }

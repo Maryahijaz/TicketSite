@@ -1,0 +1,102 @@
+﻿@model TicketSite.Models.Flight;
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/ındex.css">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+                
+    
+<body class="page" >
+<section class="banner" id="top">
+    <div class="container">
+        <div class="row">                            
+                  <div classs="flightform">
+                    <h4>  @Localizer["Uşak bileti ara"]</h4>
+                    <hr />
+                    <form id="form-submit" action="@Url.Action("UcusSorgusu", "Home")" , method="get">
+                                <div class="container2">
+                                     <div class="row">
+                                       <div class="col-md-3 form-group">
+                                            <fieldset>                                       
+                                            <label for="Departure" class="control-label"> @Localizer["Nerden"]</label>
+                                            <input name="Departure" id="Departure" class="form-control" />                                                                             
+                                            </fieldset>
+                                        </div>
+       
+                                       <div class="col-md-3 form-group">
+                                            <fieldset>
+                                        <label for="Destination" class="control-label">  @Localizer["Nereye"]</label>
+                                             <input name="Destination" class="form-control" />
+                                           </fieldset>
+                                        </div>
+
+                                       <div class="col-md-3">
+                                         <fieldset>
+                                        <label for="departuredate"> @Localizer["Kalkış tarihi"]</label>
+                                           <input name="departuredate" type="text" class="form-control date" id="deparuredate" placeholder="Select date..." required="" onchange='this.form.()'>
+                                         </fieldset>
+                                        </div>
+                                                              
+                                           <div class="col-md-3 form-group">
+                                                <fieldset>
+                                       @*    <a asp-action="Index"> *@
+                                        <button class="aramabutonu" type="submit" id="form-submit"> @Localizer["Bilet bul"]</button>
+                                    </fieldset>
+                                            </div>                           
+
+                            </div>
+                              </div>                           
+                          </form>
+                </div>
+         </div>
+    </div>
+</section>
+    @* <img id="resim" src="~/img/newyork.jpg" alt="anasayfa" /> *@
+    <hr />
+    <br />
+
+<div class="container2">
+
+    <div class="box">
+            <p class="styled-text ">@Localizer["Uçuş sorgula"]</p>
+    </div>
+    <div class="box">
+            <p class="styled-text ">@Localizer[" Check-in"]</p>
+    </div>
+    <div class="box">
+            <p class="styled-text ">@Localizer["Bilet iptal"]</p>
+    </div>
+</div>
+
+<br />
+
+@* <div class="styled-text">
+    <h4>En uygun uçak biletini bul</h4>
+</div> *@
+
+<div class="imagee-container">
+    <img class="image" src="img/kapadokya.jpg" alt="Resim 1">
+    <img class="image" src="img/newyork.jpg" alt="Resim 2">
+    <img class="image" src="img/Hallstatt.jpg" alt="Resim 3">
+</div>
+<div class="imagee-container">
+    <img class="image" src="img/bogazici.jpg" alt="Resim 4">
+    <img class="image" src="img/Aurora2.jpg" alt="Resim 5">
+    <img class="image" src="img/iran.jpeg" alt="Resim 6">
+</div>
+
+<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+<div class="bosluk"></div>
+</body>
+
